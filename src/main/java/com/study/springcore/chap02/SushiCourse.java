@@ -1,4 +1,4 @@
-package com.study.springcore.chap01;
+package com.study.springcore.chap02;
 
 public class SushiCourse {
 
