@@ -1,10 +1,14 @@
-package com.study.springcore.chap02;
+package com.study.springcore.chap03;
 
 public class WesturnRestaurant implements Restaurant {
 
-    private JohnChef chef = new JohnChef();
+    private Chef chef;
+    private Course course;
 
-    private WesturnCourse course = new WesturnCourse();
+    public WesturnRestaurant(Chef chef, Course course) {
+        this.chef = chef;
+        this.course = course;
+    }
 
     public void order() {
         System.out.println("안녕하세요. 서양 레스토랑입니다.");
