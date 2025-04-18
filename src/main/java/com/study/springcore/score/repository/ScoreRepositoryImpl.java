@@ -73,6 +73,7 @@ public class ScoreRepositoryImpl implements ScoreRepository {
         return score;
     }
 
+
     @Override
     public void delete(int stuNum) {
         String sql = "DELETE FROM scores WHERE stu_num = ?";

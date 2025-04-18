@@ -16,14 +16,14 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class ScoreRepositoryTest {
 
-    @Autowired // 테스트 클래슨느 객체가 생성되지 않음 -> 생성자 호출 안됨 -> 필드 주입 해주세요.
+    @Autowired // 테스트 클래스는 객체가 생성되지 않음 -> 생성자 호출 안됨 -> 필드 주입 해주세요.
     ScoreRepository scoreRepository;
 
     @Test
     @DisplayName("새로운 성적 정보를 save를 통해 추가한다.")
     void saveTest() {
         Score score = new Score("김춘식3", 100, 100, 100);
-        score.setTotal(score.getKor() + score.getEng() + score.getMath());
+        score.setTotal(score.getKor()+ score.getEng()+score.getMath());
         score.setAverage(score.getTotal() / 3.0);
 
         if (score.getAverage() >= 90) score.setGrade(Grade.A);
@@ -43,7 +43,7 @@ class ScoreRepositoryTest {
     }
 
     @Test
-    @DisplayName("scores 테이블의 모든 학생을 조회한다.")
+    @DisplayName("scores 테이블의 모든 학생을 조회했을 때 학생 수는 3명일 것이다.")
     void selectAllTest() {
         // given: 준비 -> 테스트에 사용할 변수, 입력값 등을 정의하는 곳.
 
@@ -57,13 +57,24 @@ class ScoreRepositoryTest {
     }
 
     @Test
-    @DisplayName("3번 학생의 이름은 김춘식1일 것이다.")
+    @DisplayName("3번 학생의 이름은 김춘식2일 것이다.")
     void findOneTest() {
         // given
         int stuNum = 3;
         // when
         Score score = scoreRepository.selectOne(stuNum);
         // then
-        assertEquals("김춘식1", score.getStuName());
+        assertEquals("김춘식2", score.getStuName());
     }
+
+
+
 }
+
+
+
+
+
+
+
+
